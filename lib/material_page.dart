@@ -24,20 +24,24 @@ class MyMaterialPage extends StatelessWidget {
               TextField(
                 style: TextStyle(color: Colors.white),
                 decoration: InputDecoration(
-                    hintText: 'Please enter the amount in INR here.',
-                    hintStyle: TextStyle(color: Colors.grey),
-                    filled: true,
-                    fillColor: Colors.white30,
-                    prefixIcon: Icon(
-                      Icons.currency_rupee,
-                      color: Color.fromARGB(255, 162, 195, 223),
+                  hintText: 'Please enter the amount in INR here.',
+                  hintStyle: TextStyle(color: Colors.grey),
+                  filled: true,
+                  fillColor: Colors.white30,
+                  prefixIcon: Icon(
+                    Icons.currency_rupee,
+                    color: Color.fromARGB(255, 162, 195, 223),
+                  ),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(50),
                     ),
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.all(
-                        Radius.circular(50),
-                      ),
-                    ),
-                    focusedBorder: myBorder),
+                  ),
+                  focusedBorder: myBorder,
+                ),
+                keyboardType: TextInputType.numberWithOptions(
+                  decimal: true,
+                ),
               ),
             ],
           ),
