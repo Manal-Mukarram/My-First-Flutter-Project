@@ -5,13 +5,17 @@ class MyMaterialPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
+        backgroundColor: Colors.black,
         body: Center(
-      child: ColoredBox(
-          color: Color.fromRGBO(255, 0, 0, 1),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: [Text('Hello World')],
-          )),
-    ));
+            children: [
+              Text(
+                'Hello World',
+                style: TextStyle(color: Colors.white),
+              )
+            ],
+          ),
+        ));
   }
 }
