@@ -11,17 +11,19 @@ class MyMaterialPage extends StatelessWidget {
       ),
       borderSide: BorderSide(color: Colors.white, width: 1),
     );
-    return const Scaffold(
-        backgroundColor: Colors.black,
-        body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                'Hello World',
-                style: TextStyle(color: Colors.white),
-              ),
-              TextField(
+    return Scaffold(
+      backgroundColor: Colors.black,
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            const Text(
+              'Hello World',
+              style: TextStyle(color: Colors.white),
+            ),
+            Container(
+              padding: const EdgeInsets.fromLTRB(30, 15, 30, 15),
+              child: const TextField(
                 style: TextStyle(color: Colors.white),
                 decoration: InputDecoration(
                   hintText: 'Please enter the amount in INR here.',
@@ -43,8 +45,10 @@ class MyMaterialPage extends StatelessWidget {
                   decimal: true,
                 ),
               ),
-            ],
-          ),
-        ));
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }
