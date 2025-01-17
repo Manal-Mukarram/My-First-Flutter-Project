@@ -9,6 +9,27 @@ Okay so the steps for the app are:
 3. Store the value in the variable created
 4. Display the value (converted amount)
 
+Not sure if I should put it here or in the production code, but here it is.. this is the structure of class when you need to create a stateful widget (I'm not really understanding the concept, so I'll just follow the structure):-
+1. Parent Class:
+-> Create a class that extends StatefulWidget.
+-> It defines what the widget is (e.g., a screen or a button that can change).
+class MyStatefulWidget extends StatefulWidget {
+  const MyStatefulWidget({super.key}); // Optional constructor
+  @override
+  State<MyStatefulWidget> createState() => _MyStatefulWidgetState();
+}
+2. State Class:
+-> Create a private class (starting with _) that extends State.
+-> This is where you write all the logic (e.g., updates, UI building).
+class _MyStatefulWidgetState extends State<MyStatefulWidget> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Center(child: Text('This is a stateful widget')),
+    );
+  }
+}
+
 
 ## Getting Started
 
