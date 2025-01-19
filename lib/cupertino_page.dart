@@ -1,12 +1,13 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 
-class MyMaterialPage extends StatefulWidget {
-  const MyMaterialPage({super.key});
+class MyCupertinoPage extends StatefulWidget {
+  const MyCupertinoPage({super.key});
+
   @override
-  State<MyMaterialPage> createState() => _MyMaterialPage();
+  State<MyCupertinoPage> createState() => _MyCupertinoPageState();
 }
 
-class _MyMaterialPage extends State<MyMaterialPage> {
+class _MyCupertinoPageState extends State<MyCupertinoPage> {
   double convertedValue = 0;
   final TextEditingController textEditingController = TextEditingController();
 
@@ -16,16 +17,15 @@ class _MyMaterialPage extends State<MyMaterialPage> {
       borderRadius: BorderRadius.all(
         Radius.circular(50),
       ),
-      borderSide: BorderSide(color: Colors.white, width: 1),
+      borderSide: BorderSide(color: CupertinoColors.white, width: 1),
     );
-    return Scaffold(
+    return CupertinoPageScaffold(
       backgroundColor: const Color.fromARGB(255, 150, 149, 149),
-      appBar: AppBar(
-        backgroundColor: const Color.fromARGB(255, 116, 115, 115),
-        centerTitle: true,
-        title: const Text('Currency Converter'),
+      navigationBar: const CupertinoNavigationBar(
+        backgroundColor:  Color.fromARGB(255, 116, 115, 115),
+        middle:  Text('Currency Converter'),
       ),
-      body: Center(
+      child: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -34,12 +34,12 @@ class _MyMaterialPage extends State<MyMaterialPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 const Icon(
-                  Icons.currency_rupee,
+                  CupertinoIcons.,
                   color: Colors.white,
                   size: 35,
                 ),
                 Text(
-                  convertedValue.toStringAsFixed(2),
+                  '₹ $convertedValue.toStringAsFixed(2)',
                   style: const TextStyle(
                     color: Colors.white,
                     fontSize: 40,
@@ -51,7 +51,7 @@ class _MyMaterialPage extends State<MyMaterialPage> {
             // INR AMOUNT TEXTFIELD
             Container(
               padding: const EdgeInsets.fromLTRB(100, 15, 100, 15),
-              child: TextField(
+              child: CupertinoTextField(
                 controller: textEditingController,
                 style: const TextStyle(color: Color.fromARGB(255, 0, 0, 0)),
                 decoration: const InputDecoration(
