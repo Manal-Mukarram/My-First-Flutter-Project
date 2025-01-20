@@ -13,17 +13,11 @@ class _MyCupertinoPageState extends State<MyCupertinoPage> {
 
   @override
   Widget build(BuildContext context) {
-    const myBorder = OutlineInputBorder(
-      borderRadius: BorderRadius.all(
-        Radius.circular(50),
-      ),
-      borderSide: BorderSide(color: CupertinoColors.white, width: 1),
-    );
     return CupertinoPageScaffold(
-      backgroundColor: const Color.fromARGB(255, 150, 149, 149),
+      backgroundColor: Color.fromARGB(255, 119, 117, 117),
       navigationBar: const CupertinoNavigationBar(
-        backgroundColor:  Color.fromARGB(255, 116, 115, 115),
-        middle:  Text('Currency Converter'),
+        backgroundColor: Color.fromARGB(255, 116, 115, 115),
+        middle: Text('Currency Converter'),
       ),
       child: Center(
         child: Column(
@@ -33,15 +27,10 @@ class _MyCupertinoPageState extends State<MyCupertinoPage> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const Icon(
-                  CupertinoIcons.,
-                  color: Colors.white,
-                  size: 35,
-                ),
                 Text(
-                  '₹ $convertedValue.toStringAsFixed(2)',
+                  '₹ ${convertedValue.toStringAsFixed(2)}',
                   style: const TextStyle(
-                    color: Colors.white,
+                    color: CupertinoColors.white,
                     fontSize: 40,
                   ),
                 ),
@@ -54,21 +43,20 @@ class _MyCupertinoPageState extends State<MyCupertinoPage> {
               child: CupertinoTextField(
                 controller: textEditingController,
                 style: const TextStyle(color: Color.fromARGB(255, 0, 0, 0)),
-                decoration: const InputDecoration(
-                  hintText: 'Please enter the amount in USD here.',
-                  hintStyle: TextStyle(color: Color.fromARGB(255, 95, 95, 95)),
-                  filled: true,
-                  fillColor: Colors.white30,
-                  prefixIcon: Icon(
-                    Icons.monetization_on_outlined,
-                    color: Color.fromARGB(255, 0, 0, 0),
+                decoration: BoxDecoration(
+                  border: Border.all(
+                    color: CupertinoColors.white,
                   ),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(50),
-                    ),
-                  ),
-                  focusedBorder: myBorder,
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                prefix: const Icon(
+                  CupertinoIcons.money_dollar,
+                  color: Color.fromARGB(255, 255, 255, 255),
+                  size: 35,
+                ),
+                placeholder: 'Please enter the amount is USD',
+                placeholderStyle: const TextStyle(
+                  color: CupertinoColors.lightBackgroundGray,
                 ),
                 keyboardType: const TextInputType.numberWithOptions(
                   decimal: true,
@@ -77,31 +65,21 @@ class _MyCupertinoPageState extends State<MyCupertinoPage> {
             ),
 
             // CONVERTER BUTTON
-            Container(
-              padding: const EdgeInsets.fromLTRB(30, 15, 30,
-                  15), // added padding in case I need to use button in rectangular shape
-              child: ElevatedButton(
-                onPressed: () {
-                  setState(() {
-                    convertedValue =
-                        double.parse(textEditingController.text) * 81;
-                  });
-                },
-                style: const ButtonStyle(
-                  backgroundColor: MaterialStatePropertyAll(Colors.white),
-                  foregroundColor: MaterialStatePropertyAll(
-                    Color.fromARGB(255, 0, 0, 0),
-                  ),
-                  shape: MaterialStatePropertyAll(CircleBorder()),
-                  elevation: MaterialStatePropertyAll(5),
-                  shadowColor: MaterialStatePropertyAll(
-                    Color.fromARGB(255, 0, 0, 0),
-                  ), // in case bg is black, use white shadow
-                  iconSize: MaterialStatePropertyAll(50),
-                ),
-                child: const Icon(Icons.change_circle),
+            CupertinoButton(
+              onPressed: () {
+                setState(() {
+                  convertedValue =
+                      double.parse(textEditingController.text) * 81;
+                });
+              },
+              padding: const EdgeInsets.all(10),
+              color: CupertinoColors.white,
+              borderRadius: BorderRadius.circular(100),
+              child: const Icon(
+                CupertinoIcons.arrow_2_circlepath,
+                size: 40,
               ),
-            )
+            ),
           ],
         ),
       ),
